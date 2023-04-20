@@ -73,8 +73,8 @@ df_sim6_power_batery = pd.read_csv(sim6_power_batery)
 
 plt.plot(df_sim1_power_line['hour'],
          df_sim1_power_line[' P1 (kW)'], label='Simulacao 1')
-plt.plot(df_sim3_power_line['hour'],
-         df_sim3_power_line[' P1 (kW)'], label='Simulacao 2')
+plt.plot(df_sim4_power_line['hour'],
+         df_sim4_power_line[' P1 (kW)'], label='Simulacao 4')
 
 plt.xlabel('hour')
 plt.ylabel(' P1 (kW)')

@@ -1,0 +1,1 @@
+new line.linha1 bus1=a bus2=b phases=3 length=0.5 units=km linecode=arranjo

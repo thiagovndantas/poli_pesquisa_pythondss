@@ -3,11 +3,25 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import asyncio
+
+from auxiliar import create_file
 
 # criação do arranjo
-arranjo_file = "arranjo.txt"
-arranjo = open(arranjo_file, "w")
-arranjo.write("new linecode.arranjo rmatrix=(0.02 | 0.02 0.04 | 0.02 0.04 0.06) xmatrix=(0.48 | 0.48 0.6 | 0.48 0.6 0.69) cmatrix=(-2.51 | 0.69 4.1 | -0.51 0.69 4.1)")
+
+circuit = {"arranjo.txt": "new linecode.arranjo rmatrix=(0.02 | 0.02 0.04 | 0.02 0.04 0.06) xmatrix=(0.48 | 0.48 0.6 | 0.48 0.6 0.69) cmatrix=(-2.51 | 0.69 4.1 | -0.51 0.69 4.1)",
+           "fonte.txt": "new circuit.fonte bus1=a basekv=0.22 phases=3",
+           "linha1.txt": "new line.linha1 bus1=a bus2=b phases=3 length=0.5 units=km linecode=arranjo",
+           "linha2.txt": "new line.linha2 bus1=b bus2=c phases=3 length=0.15 units=km linecode=arranjo",
+           "carga.txt": "new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default"}
+
+
+async def create_file_async():
+    for element, parameter in circuit.items():
+        create_file(element, parameter)
+    await asyncio.sleep(1)
+
+asyncio.run(create_file_async())
 
 # chamando o opendss
 dss = py_dss_interface.DSSDLL()
@@ -15,6 +29,7 @@ dss = py_dss_interface.DSSDLL()
 # criando o loadshape
 loadShape1 = (0.677, 0.6256, 0.6087, 0.5833, 0.58028, 0.6025, 0.657, 0.7477, 0.832, 0.88,
               0.94, 0.989, 0.985, 0.98, 0.9898, 0.999, 1, 0.958, 0.936, 0.913, 0.876, 0.876, 0.828, 0.756)
+
 df1 = pd.DataFrame(loadShape1)
 df1.to_csv('loadshape1.csv', index=False, header=False)
 
@@ -45,7 +60,6 @@ dss.text("compile {}".format(dss_file3))
 dss.text("compile {}".format(dss_file4))
 dss.text("compile {}".format(dss_file5))
 dss.text("compile {}".format(dss_file6))
-#dss.text("complie {}".format(dss_file7))
 
 
 # arquivos gerados pela compilação do código

@@ -7,7 +7,7 @@ redirect linha2.txt
 
 new loadshape.semana
 
-new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default
+redirect carga.txt
 
 new loadshape.storagecurve npts=24 interval=1 mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)
 

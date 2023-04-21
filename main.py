@@ -28,7 +28,7 @@ dss_file4 = "simulacao4.dss"
 # simulação 5 - carga somente com pvsystem
 dss_file5 = "simulacao5.dss"
 
-# simulação 4 - carga somente com storage em modo = follow e pvsystem
+# simulação 6 - carga somente com storage em modo = follow e pvsystem
 dss_file6 = "simulacao6.dss"
 
 # rodando os arquivos

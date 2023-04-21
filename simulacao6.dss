@@ -19,10 +19,10 @@ set voltagebases=0.22
 calc voltagebases
 
 new monitor.monitor_power_batery_sim6 element=storage.batery mode=1 ppolar=no
-new monitor.monitor_power_line_sim6 element=line.linha1 mode=1 ppolar=no
+new monitor.monitor_power_line_sim6 element=line.linha1 mode=1 ppolar=no terminal=2
 new monitor.monitor_voltage element=line.linha1 mode=0
-new monitor.monitor_power_line2_sim6 element=line.linha2 mode=1 ppolar=no
-new monitor.monitor_power_pv_sim6 element=transformer.pv_up terminal=1 mode=1 ppolar=no
+new monitor.monitor_power_line2_sim6 element=line.linha2 mode=1 ppolar=no terminal=1
+new monitor.monitor_power_pv_sim6 element=transformer.pv_up terminal=2 mode=1 ppolar=no
 
 set mode=daily
 set stepsize=1h

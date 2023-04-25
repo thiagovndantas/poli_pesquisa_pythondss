@@ -64,16 +64,16 @@ dss.text("compile {}".format(dss_file6))
 
 # arquivos gerados pela compilação do código
 
-sim1_power_line = "fonte_Mon_monitor_power_line_sim1_1.csv"
-sim2_power_line = "fonte_Mon_monitor_power_line_sim2_1.csv"
+sim1_power_line = "fonte_Mon_monitor_power_line_sim1_1.csv"  # linha 1 terminal 2
+sim2_power_line = "fonte_Mon_monitor_power_line_sim2_1.csv"  # linha 1 terminal 2
 sim2_power_batery = "fonte_Mon_monitor_power_batery_sim2_1.csv"
-sim3_power_line = "fonte_Mon_monitor_power_line_sim3_1.csv"
+sim3_power_line = "fonte_Mon_monitor_power_line_sim3_1.csv"  # linha 1 terminal 2
 sim3_power_batery = "fonte_Mon_monitor_power_batery_sim3_1.csv"
-sim4_power_line = "fonte_Mon_monitor_power_line_sim4_1.csv"
+sim4_power_line = "fonte_Mon_monitor_power_line_sim4_1.csv"  # linha 1 terminal 2
 sim4_power_batery = "fonte_Mon_monitor_power_batery_sim4_1.csv"
-sim5_power_line = "fonte_Mon_monitor_power_line_sim5_1.csv"
-sim6_power_line = "fonte_Mon_monitor_power_line_sim6_1.csv"
-sim6_power_line2 = "fonte_Mon_monitor_power_line2_sim6_1.csv"
+sim5_power_line = "fonte_Mon_monitor_power_line_sim5_1.csv"  # linha 1 terminal 2
+sim6_power_line = "fonte_Mon_monitor_power_line_sim6_1.csv"  # linha 1 terminal 2
+sim6_power_line2 = "fonte_Mon_monitor_power_line2_sim6_1.csv"  # linha 2 terminal 1
 sim6_power_batery = "fonte_Mon_monitor_power_batery_sim6_1.csv"
 sim6_power_pv = "fonte_Mon_monitor_power_pv_sim6_1.csv"
 

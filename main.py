@@ -16,6 +16,8 @@ circuit = {"arranjo.txt": "new linecode.arranjo rmatrix=(0.02 | 0.02 0.04 | 0.02
            "carga.txt": "new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default"}
 
 
+# criar um for para adição de cartas aleatórias na linha 2
+
 async def create_file_async():
     for element, parameter in circuit.items():
         create_file(element, parameter)

@@ -110,7 +110,7 @@ plt.plot(df_sim6_power_batery['hour'],
          df_sim6_power_batery[' P1 (kW)'], label='Simulacao 6 - Bateria')
 plt.plot(df_sim6_power_pv['hour'],
          df_sim6_power_pv[' P1 (kW)'], label='Simulacao 6 - PV')
-# plt.plot(df_sim6_power_load['hour'],
+# plt.plot(df_sim6_power_load['hour']
 #          df_sim6_power_load[' P1 (kW)'], label='Simulacao 6 - Load')
 
 

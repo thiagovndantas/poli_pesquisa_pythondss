@@ -78,6 +78,7 @@ sim6_power_line = "fonte_Mon_monitor_power_line_sim6_1.csv"  # linha 1 terminal 
 sim6_power_line2 = "fonte_Mon_monitor_power_line2_sim6_1.csv"  # linha 2 terminal 1
 sim6_power_batery = "fonte_Mon_monitor_power_batery_sim6_1.csv"
 sim6_power_pv = "fonte_Mon_monitor_power_pv_sim6_1.csv"
+# sim6_power_load = "fonte_Mon_monitor_power_load_sim6_1.csv"
 
 # criando os dataframes
 
@@ -94,20 +95,23 @@ df_sim6_power_line = pd.read_csv(sim6_power_line)
 df_sim6_power_line2 = pd.read_csv(sim6_power_line2)
 df_sim6_power_batery = pd.read_csv(sim6_power_batery)
 df_sim6_power_pv = pd.read_csv(sim6_power_pv)
+# df_sim6_power_load = pd.read_csv(sim6_power_load)
 
 
 # plotando o gráfico
 
 plt.plot(df_sim1_power_line['hour'],
          df_sim1_power_line[' P1 (kW)'], label='Simulacao 1')
-plt.plot(df_sim3_power_line['hour'],
-         df_sim3_power_line[' P1 (kW)'], label='Simulacao 6 - Linha 1')
+plt.plot(df_sim6_power_line['hour'],
+         df_sim6_power_line[' P1 (kW)'], label='Simulacao 6 - Linha 1')
 plt.plot(df_sim6_power_line2['hour'],
          df_sim6_power_line2[' P1 (kW)'], label='Simulacao 6 - Linha 2')
 plt.plot(df_sim6_power_batery['hour'],
          df_sim6_power_batery[' P1 (kW)'], label='Simulacao 6 - Bateria')
 plt.plot(df_sim6_power_pv['hour'],
          df_sim6_power_pv[' P1 (kW)'], label='Simulacao 6 - PV')
+# plt.plot(df_sim6_power_load['hour'],
+#          df_sim6_power_load[' P1 (kW)'], label='Simulacao 6 - Load')
 
 
 plt.xlabel('hour')

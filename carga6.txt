@@ -1,0 +1,1 @@
+new load.carga6.txt phases=3 conn=wye bus1=b kw=46.42 pf=0.97 kv=0.22 daily=default

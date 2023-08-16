@@ -4,19 +4,34 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import asyncio
+import random
 
 from auxiliar import create_file
 
 # criação do arranjo
 
-circuit = {"arranjo.txt": "new linecode.arranjo rmatrix=(0.02 | 0.02 0.04 | 0.02 0.04 0.06) xmatrix=(0.48 | 0.48 0.6 | 0.48 0.6 0.69) cmatrix=(-2.51 | 0.69 4.1 | -0.51 0.69 4.1)",
-           "fonte.txt": "new circuit.fonte bus1=a basekv=0.22 phases=3",
-           "linha1.txt": "new line.linha1 bus1=a bus2=b phases=3 length=0.5 units=km linecode=arranjo",
-           "linha2.txt": "new line.linha2 bus1=b bus2=c phases=3 length=0.15 units=km linecode=arranjo",
-           "carga.txt": "new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default"}
+circuit = {
+    "arranjo.txt": "new linecode.arranjo rmatrix=(0.02 | 0.02 0.04 | 0.02 0.04 0.06) xmatrix=(0.48 | 0.48 0.6 | 0.48 0.6 0.69) cmatrix=(-2.51 | 0.69 4.1 | -0.51 0.69 4.1)",
+    "fonte.txt": "new circuit.fonte bus1=a basekv=0.22 phases=3",
+    "linha1.txt": "new line.linha1 bus1=a bus2=b phases=3 length=0.5 units=km linecode=arranjo",
+    "linha2.txt": "new line.linha2 bus1=b bus2=c phases=3 length=0.15 units=km linecode=arranjo",
+    "carga.txt": "new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default"
+}
 
+# Adicionar elementos "carga" com números e parâmetros aleatórios
+num_cargas = 10  # Número de elementos "carga" a serem adicionados
 
-# criar um for para adição de cartas aleatórias na linha 2
+for i in range(1, num_cargas + 1):
+    carga_name = f"carga{i}.txt"
+    kw = random.uniform(5, 50)
+    pf = random.uniform(0.8, 1)
+    carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=b kw={kw:.2f} pf={pf:.2f} kv=0.22 daily=default"
+    circuit[carga_name] = carga_value
+
+# Imprimir o dicionário atualizado
+for key, value in circuit.items():
+    print(key, ":", value)
+
 
 async def create_file_async():
     for element, parameter in circuit.items():

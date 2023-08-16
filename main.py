@@ -15,7 +15,7 @@ circuit = {
     "fonte.txt": "new circuit.fonte bus1=a basekv=0.22 phases=3",
     "linha1.txt": "new line.linha1 bus1=a bus2=b phases=3 length=0.5 units=km linecode=arranjo",
     "linha2.txt": "new line.linha2 bus1=b bus2=c phases=3 length=0.15 units=km linecode=arranjo",
-    "carga.txt": "new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default"
+    "carga.txt": "new load.carga phases=3 conn=wye bus1=b kw=25 pf=0.92 kv=0.22 daily=default",
 }
 
 # Adicionar elementos "carga" com números e parâmetros aleatórios
@@ -39,6 +39,36 @@ async def create_file_async():
     await asyncio.sleep(1)
 
 asyncio.run(create_file_async())
+
+# criando os arquivos de simulação
+
+simulacao1 = "redirect fonte.txt\nredirect arranjo.txt \
+redirect linha1.txt \
+redirect linha2.txt \
+new loadshape.semana \
+redirect carga.txt \
+new loadshape.storagecurve  \
+npts = 24 interval = 1 mult = (0 0 - 1 - 1 - 1 - 1 - 1 - 1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)\
+!new storage.batery phases = 3 bus1 = c kv = 0.22 kwrated = 15 kwhrated = 60 dispmode = follow daily = storagecurve\
+!redirect mypvsyst.dss\
+set voltagebases = 0.22\
+calc voltagebases\
+!new monitor.monitor_power_batery_sim1 element = storage.batery mode = 1 ppolar = no\
+new monitor.monitor_power_line_sim1 element = line.linha1 mode = 1 ppolar = no terminal = 2\
+new monitor.monitor_voltage element = line.linha1 mode = 0\
+set mode = daily\
+set stepsize = 1h\
+set number = 24\
+solve\
+!Export monitors monitor_power_batery_sim1\
+!Plot monitor object = monitor_power channels = (1 3 5)\
+Export monitors monitor_power_line_sim1\
+!Plot monitor object = monitor_power2 channels = (1 3 5)\
+!Export monitors monitor_voltage\
+!Plot monitor object = monitor_voltage channels = (1 3 5)"
+
+create_file("simulacao1.txt", simulacao1)
+
 
 # chamando o opendss
 dss = py_dss_interface.DSSDLL()

@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-import asyncio
-import random
 
 from auxiliar import create_file
 from auxiliar import create_circuit

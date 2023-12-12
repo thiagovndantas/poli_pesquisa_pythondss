@@ -32,8 +32,8 @@ def create_circuit():
         new line.linha2 bus1=b bus2=c phases=3 length=0.15 units=km linecode=arranjo",
 
     "loadshapes": "new loadshape.semana\n\
-        new loadshape.storagecurve npts=24 interval=1 \n\
-        mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)",
+    new loadshape.storagecurve npts=24 interval=1 \n\
+    mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)",
 
     "storage.batery.txt": "new storage.batery phases=3 bus1=c kv=0.22 \n\
         kwrated=15 kwhrated=60 dispmode=follow daily=storagecurve",

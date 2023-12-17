@@ -1,2 +1,2 @@
-new storage.batery phases=3 bus1=c kv=0.22 
+new storage.batery phases=3 bus1=c kv=0.380 
         kwrated=15 kwhrated=60 dispmode=follow daily=storagecurve

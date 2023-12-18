@@ -1,16 +1,25 @@
-new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6)
+import os
+import pandas as pd
 
-new xycurve.myeff npts=4 xarray=(.1 .2 .4 1) yarray=(.86 .9 .93 .97)
+def calcular_media_diaria_por_hora(arquivo):
 
-new loadshape.myirrad npts=24 interval=1
-mult=(0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1 1 .99 .9 .7 .4 .1 0 0 0 0 0)
+    # Obtém o caminho do diretório atual
+    caminho_atual = os.getcwd()
 
-new tshape.mytemp npts=24 interval=1
-temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25)
+    # Junta o caminho do diretório atual com o nome do arquivo
+    caminho_arquivo = os.path.join(caminho_atual, arquivo)
 
-new pvsystem.pv phases=3 bus1=trafo_pv kv=0.48 irrad=.98 pmpp=25 temperature=25 pf=1
-%cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+    # Carregar o arquivo CSV em um DataFrame
+    df = pd.read_csv(caminho_arquivo)
+    df['hora'] = df['Time stamp'] % 24
+    df['temperatura'] = df['Subarray 1 Cell temperature | (C)']
+    media_diaria_por_hora = df.groupby(['hora'])['temperatura'].mean()
 
-new transformer.pv_up phases=3 xhl=5.75
-wdg=1 bus=trafo_pv kv=0.48 kva=25 conn=wye
-wdg=2 bus=c kv=0.22 kva=55 conn=wye
+    # Resetar o índice para obter um DataFrame com as colunas 'hora' e 'temperatura'
+    media_diaria_por_hora = media_diaria_por_hora.reset_index()
+    temperatura = media_diaria_por_hora['temperatura'].round(2)
+    resultado = ' '.join(map(str, temperatura.to_numpy().tolist()))
+
+
+    # Exibir a média diária por hora
+    return(resultado)

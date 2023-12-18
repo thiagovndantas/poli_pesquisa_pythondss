@@ -39,6 +39,9 @@ def create_circuit():
         kwrated=15 kwhrated=60 dispmode=follow daily=storagecurve",
 
     "carga.txt": cargas
+
+    "sam_pvsystem_temp.csv" = "new tshape.mytemp npts=24 interval=1 \n\
+    temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25)"
     }
 
     return files

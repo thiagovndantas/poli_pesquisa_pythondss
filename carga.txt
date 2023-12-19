@@ -1,1 +1,1 @@
-new load.carga1.txt phases=3 conn=wye bus1=b kw=15.22 pf=0.83 kv=0.38 daily=default
+new load.carga1.txt phases=3 conn=wye bus1=b kw=37.46 pf=0.80 kv=0.38 daily=default

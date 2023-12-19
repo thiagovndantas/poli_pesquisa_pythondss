@@ -12,11 +12,14 @@ def calcular_media_diaria_por_hora(arquivo):
     # Carregar o arquivo CSV em um DataFrame
     df = pd.read_csv(caminho_arquivo)
     df['hora'] = df['Time stamp'] % 24
-    df['temperatura'] = df['Subarray 1 Cell temperature | (C)']
+    df['temperatura'] = df['Subarray 1 Cell temperature (steady state) | (C)']
     media_diaria_por_hora = df.groupby(['hora'])['temperatura'].mean()
 
     # Resetar o índice para obter um DataFrame com as colunas 'hora' e 'temperatura'
     media_diaria_por_hora = media_diaria_por_hora.reset_index()
+    temperatura = media_diaria_por_hora['temperatura'].round(2)
+    resultado = ' '.join(map(str, temperatura.to_numpy().tolist()))
+
 
     # Exibir a média diária por hora
-    return(media_diaria_por_hora)
+    return "temp = ("+ resultado + ")"

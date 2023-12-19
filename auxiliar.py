@@ -1,4 +1,5 @@
 import random
+from database import calcular_media_diaria_por_hora
 
 def create_file(name, parameters):
     arquivo = open(name, "w")
@@ -19,6 +20,8 @@ def create_circuit():
         carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=b kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=default\n"
         cargas += carga_value
 
+    pvsyst_temp = calcular_media_diaria_por_hora('results.csv')
+    
     # Cria a função para a criação do circuito geral
     files = {
     "arranjo.txt": "new linecode.arranjo \n\
@@ -38,10 +41,10 @@ def create_circuit():
     "storage.batery.txt": "new storage.batery phases=3 bus1=c kv=0.380 \n\
         kwrated=15 kwhrated=60 dispmode=follow daily=storagecurve",
 
-    "carga.txt": cargas
+    "carga.txt": cargas,
 
-    "sam_pvsystem_temp.csv" = "new tshape.mytemp npts=24 interval=1 \n\
-    temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25)"
+    "pvsyst_temp.txt": pvsyst_temp
+        
     }
 
     return files

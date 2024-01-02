@@ -15,7 +15,7 @@ def create_circuit():
     # Estrutura de repetição para a criação das cargas
     for i in range(1, num_cargas + 1):
         carga_name = f"carga{i}.txt"
-        kw = random.uniform(5, 50)
+        kw = random.uniform(120, 200)
         pf = random.uniform(0.8, 1)
         carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=b kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=default\n"
         cargas += carga_value

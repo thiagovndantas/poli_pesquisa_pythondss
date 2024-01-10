@@ -35,7 +35,7 @@ def calcular_potencia_diaria_por_hora(arquivo):
     # Carregar o arquivo CSV em um DataFrame
     df = pd.read_csv(caminho_arquivo)
     df['hora'] = df['Time stamp'] % 24
-    df['potencia'] = df['System power generated | (kW)']
+    df['potencia'] = df['System power generated | (kW)']/4.373
     media_diaria_por_hora = df.groupby(['hora'])['potencia'].mean()
 
     # Resetar o índice para obter um DataFrame com as colunas 'hora' e 'temperatura'
@@ -58,7 +58,7 @@ def calcular_irradiancia_diaria_por_hora(arquivo):
     # Carregar o arquivo CSV em um DataFrame
     df = pd.read_csv(caminho_arquivo)
     df['hora'] = df['Time stamp'] % 24
-    df['irradiancia'] = df['Array POA front-side total radiation nominal | (kW)']
+    df['irradiancia'] = df['Subarray 1 POA front total irradiance nominal | (W/m2)']/1000
     media_diaria_por_hora = df.groupby(['hora'])['irradiancia'].mean()
 
     # Resetar o índice para obter um DataFrame com as colunas 'hora' e 'temperatura'

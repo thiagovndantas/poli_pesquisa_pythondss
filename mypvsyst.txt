@@ -6,9 +6,5 @@ new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6)
     new tshape.mytemp npts=24 interval=1 
     redirect pvsyst_temp.txt 
     !temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25) 
-    new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp=5.5 temperature=26 pf=1 
-    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp 
-    !new transformer.pv_up phases=3 xhl=5.75 
-    !wdg=1 bus=trafo_pv kv=0.48 kva=25 conn=wye 
-    !wdg=2 bus=c kv=0.38 kva=25 conn=wye 
-    
+    new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp=55.0 temperature=26 pf=1 
+    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp

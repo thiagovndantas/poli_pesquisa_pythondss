@@ -11,6 +11,7 @@ def create_circuit():
     # Chama uma quantidade de cargas
     num_cargas = int(input("defina a quantidade de cargas: "))
     num_pvs = int(input("defina a quantidade de cargas com sistemas solares instalados: "))
+    sistemas = num_pvs * 5.5
 
     # Cria um array vazio para concatenar as cargas
     cargas = ""
@@ -55,7 +56,7 @@ def create_circuit():
 
     "pvsyst_pot.txt": pvsyst_pot,
 
-    "mypvsyst.txt": "new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6) \n\
+    "mypvsyst.txt": f"new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6) \n\
     new xycurve.myeff npts=4 xarray=(.1 .2 .4 1) yarray=(.86 .9 .93 .97) \n\
     new loadshape.myirrad npts=24 interval=1 \n\
     redirect pvsyst_irrad.txt \n\
@@ -63,12 +64,8 @@ def create_circuit():
     new tshape.mytemp npts=24 interval=1 \n\
     redirect pvsyst_temp.txt \n\
     !temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25) \n\
-    new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp=5.5 temperature=26 pf=1 \n\
-    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp \n\
-    !new transformer.pv_up phases=3 xhl=5.75 \n\
-    !wdg=1 bus=trafo_pv kv=0.48 kva=25 conn=wye \n\
-    !wdg=2 bus=c kv=0.38 kva=25 conn=wye \n\
-    "
+    new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp={sistemas} temperature=26 pf=1 \n\
+    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp"
     }
 
     return files

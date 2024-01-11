@@ -1,2 +1,10 @@
-new load.carga1.txt phases=3 conn=wye bus1=b kw=182.69 pf=0.99 kv=0.38 daily=default
-new load.carga2.txt phases=3 conn=wye bus1=b kw=127.46 pf=0.95 kv=0.38 daily=default
+new load.carga1.txt phases=3 conn=wye bus1=b kw=173.84 pf=0.94 kv=0.38 daily=default
+new load.carga2.txt phases=3 conn=wye bus1=b kw=157.10 pf=0.91 kv=0.38 daily=default
+new load.carga3.txt phases=3 conn=wye bus1=b kw=164.74 pf=0.93 kv=0.38 daily=default
+new load.carga4.txt phases=3 conn=wye bus1=b kw=139.17 pf=0.93 kv=0.38 daily=default
+new load.carga5.txt phases=3 conn=wye bus1=b kw=162.76 pf=0.81 kv=0.38 daily=default
+new load.carga6.txt phases=3 conn=wye bus1=b kw=148.77 pf=0.86 kv=0.38 daily=default
+new load.carga7.txt phases=3 conn=wye bus1=b kw=137.59 pf=0.86 kv=0.38 daily=default
+new load.carga8.txt phases=3 conn=wye bus1=b kw=134.41 pf=0.92 kv=0.38 daily=default
+new load.carga9.txt phases=3 conn=wye bus1=b kw=182.31 pf=0.90 kv=0.38 daily=default
+new load.carga10.txt phases=3 conn=wye bus1=b kw=171.10 pf=0.85 kv=0.38 daily=default

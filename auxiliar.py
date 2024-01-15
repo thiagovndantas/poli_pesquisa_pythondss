@@ -65,7 +65,7 @@ def create_circuit():
     redirect pvsyst_temp.txt \n\
     !temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25) \n\
     new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp={sistemas} temperature=26 pf=1 \n\
-    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp"
+    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvsit daily=myirrad tdaily=mytemp"
     }
 
     return files

@@ -19,7 +19,7 @@ def create_circuit():
     # Estrutura de repetição para a criação das cargas
     for i in range(1, num_cargas + 1):
         carga_name = f"carga{i}.txt"
-        kw = random.uniform(120, 200)
+        kw = random.uniform(50, 60)
         pf = random.uniform(0.8, 1)
         carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=b kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=default\n"
         cargas += carga_value
@@ -39,7 +39,7 @@ def create_circuit():
     "fonte.txt": "new circuit.fonte bus1=a basekv=0.380 phases=3\n",
     
     "linhas.txt": "new line.linha1 bus1=a bus2=b phases=3 length=0.5 units=km linecode=arranjo\n\
-        new line.linha2 bus1=b bus2=c phases=3 length=0.15 units=km linecode=arranjo",
+        new line.linha2 bus1=b bus2=c phases=3 length=0.01 units=km linecode=arranjo",
 
     "loadshapes": "new loadshape.semana\n\
     new loadshape.storagecurve npts=24 interval=1 \n\
@@ -65,7 +65,7 @@ def create_circuit():
     redirect pvsyst_temp.txt \n\
     !temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25) \n\
     new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp={sistemas} temperature=26 pf=1 \n\
-    %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp"
+    %cutin=0.01 %cutout=0.01 effcurve=myeff p-tcurve=mypvsist daily=myirrad tdaily=mytemp"
     }
 
     return files

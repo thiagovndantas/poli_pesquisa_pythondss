@@ -3,6 +3,7 @@ clear
 redirect fonte.txt
 redirect arranjo.txt
 redirect linhas.txt
+redirect linhas_cargas.txt
 
 new loadshape.semana
 

@@ -1,10 +1,6 @@
 new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6) 
-    new xycurve.myeff npts=4 xarray=(.1 .2 .4 1) yarray=(.86 .9 .93 .97) 
-    new loadshape.myirrad npts=24 interval=1 
-    redirect pvsyst_irrad.txt 
-    !mult=(0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1 1 .99 .9 .7 .4 .1 0 0 0 0 0) 
-    new tshape.mytemp npts=24 interval=1 
-    redirect pvsyst_temp.txt 
-    !temp=(25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25) 
-    new pvsystem.pv phases=3 bus1=c kv=0.38 irrad= 1 pmpp=550.0 temperature=26 pf=1 
-    %cutin=0.01 %cutout=0.01 effcurve=myeff p-tcurve=mypvsist daily=myirrad tdaily=mytemp
+        new xycurve.myeff npts=4 xarray=(.1 .2 .4 1) yarray=(.86 .9 .93 .97) 
+        new loadshape.myirrad npts=24 interval=1 
+        redirect pvsyst_irrad.txt 
+        new tshape.mytemp npts=24 interval=1 
+        redirect pvsyst_temp.txt

@@ -3,6 +3,7 @@ clear
 redirect fonte.txt
 redirect arranjo.txt
 redirect linhas.txt
+redirect linhas_cargas.txt
 
 new loadshape.semana
 
@@ -13,6 +14,7 @@ new loadshape.storagecurve npts=24 interval=1 mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 
 !new storage.batery phases=3 bus1=c kv=0.22 kwrated=15 kwhrated=60 dispmode=peakshave daily=storagecurve
 
 redirect mypvsyst.txt
+redirect mypvsyst_cargas.txt
 
 set voltagebases=0.22
 calc voltagebases

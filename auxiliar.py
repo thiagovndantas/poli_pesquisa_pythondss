@@ -11,7 +11,7 @@ def create_circuit():
     # Chama uma quantidade de cargas
     num_cargas = int(input("defina a quantidade de cargas: "))
     num_pvs = int(input("defina a quantidade de cargas com sistemas solares instalados: "))
-    sistemas = num_pvs * 5.5
+    pmpp = int(input("defina a potência máxima por inversor: "))
 
     # Cria um array vazio para concatenar as linhas
 
@@ -39,7 +39,7 @@ def create_circuit():
 
     # Estrutura de repetição para a criação dos pvsysts
     for i in range(1, num_pvs + 1):
-        pvsyst_value = f"new pvsystem.pv{i} phases=3 bus1=c{i} kv=0.38 irrad= 1 pmpp=5.5 temperature=26 pf=1 \n\
+        pvsyst_value = f"new pvsystem.pv{i} phases=3 bus1=c{i} kv=0.38 irrad= 1 pmpp={pmpp} temperature=26 pf=1 \n\
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp\n"
         pvsyst += pvsyst_value
 

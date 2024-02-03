@@ -8,13 +8,19 @@ def create_file(name, parameters):
     arquivo.write(parameters)
 
 def create_circuit():
-    # Chama uma quantidade de cargas
+    # Solicita as informações para a criação do circuito
     num_cargas = int(input("defina a quantidade de cargas: "))
     num_pvs = int(input("defina a quantidade de cargas com sistemas solares instalados: "))
     pmpp = int(input("defina a potência máxima por inversor: "))
+    num_baterias = int(input("defina a quantidade de cargas com baterias instaladas: "))
+    bateria_kwnominal = int(input("defina a potência nominal das baterias: "))
+    bateria_kwhora = int(input("defina o armazenamento em kwh das baterias: "))
+    bateria_modo = input("defina o modo da bateria:\n\
+                             - follow\n\
+                             - peakshave\n")
+
 
     # Cria um array vazio para concatenar as linhas
-
     linhas = ""
 
     # Estrutura de repetição para criação das linhas que conectam as cargas à linha principal
@@ -42,6 +48,16 @@ def create_circuit():
         pvsyst_value = f"new pvsystem.pv{i} phases=3 bus1=c{i} kv=0.38 irrad= 1 pmpp={pmpp} temperature=26 pf=1 \n\
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp\n"
         pvsyst += pvsyst_value
+
+    # Cria um array vazio para concatenar as baterias
+    
+    baterias = ""
+
+    # Estrutura de repetição para a criação das baterias
+    for i in range(1, num_baterias + 1):
+        baterias_value = f"new storage.batery{i} phases=3 bus1=c{i} kv=0.38 kwrated={bateria_kwnominal} kwhrated={bateria_kwhora} dispmode={bateria_modo} daily=storagecurve\n"
+        baterias += baterias_value
+        
 
     pvsyst_temp = calcular_media_diaria_por_hora('results.csv')
     pvsyst_pot = calcular_potencia_diaria_por_hora('results.csv',num_pvs)
@@ -82,7 +98,12 @@ def create_circuit():
         new tshape.mytemp npts=24 interval=1 \n\
         redirect pvsyst_temp.txt\n",
 
-    "mypvsyst_cargas.txt": pvsyst
+    "mypvsyst_cargas.txt": pvsyst,
+
+    "baterias.txt": f"new loadshape.storagecurve npts=24 interval=1 \n\
+        mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)\n",
+
+    "baterias_cargas.txt": baterias
     }
 
     return files

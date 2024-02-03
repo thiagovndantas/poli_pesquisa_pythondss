@@ -96,11 +96,11 @@ df_sim6_power_batery = pd.read_csv(sim6_power_batery)
 plt.plot(df_sim1_power_line['hour'],
          df_sim1_power_line[' P1 (kW)'], label='Simulacao 1: Carga sem nada - Linha 1')
 plt.plot(df_sim5_power_line['hour'],
-         df_sim5_power_line[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 1')
-plt.plot(df_sim5_power_line2_1['hour'],
-         df_sim5_power_line2_1[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 2 t1')
-plt.plot(df_sim5_power_line2_2['hour'],
-         df_sim5_power_line2_2[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 2 t2')
+         df_sim5_power_line[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem e bateria - Linha 1')
+# plt.plot(df_sim5_power_line2_1['hour'],
+#         df_sim5_power_line2_1[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 2 t1')
+# plt.plot(df_sim5_power_line2_2['hour'],
+#         df_sim5_power_line2_2[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 2 t2')
 #plt.plot(df_sim6_power_line2['hour'],
 #         df_sim6_power_line2[' P1 (kW)'], label='Simulacao 6: Carga com storage em modo follow e pvsystem - Linha 2')
 # plt.plot(df_sim6_power_batery['hour'],

@@ -20,6 +20,7 @@ calc voltagebases
 
 !new monitor.monitor_power_batery_sim5 element=storage.batery mode=1 ppolar=no
 new monitor.monitor_power_line_sim5 element=line.linha1 mode=1 ppolar=no
+new monitor.monitor_power_line_sim5_2 element=line.linha1 mode=1 ppolar=no terminal=2
 new monitor.monitor_power_line2_1_sim5 element=line.linha2 mode=1 ppolar=no terminal=1
 new monitor.monitor_power_line2_2_sim5 element=line.linha2 mode=1 ppolar=no terminal=2
 new monitor.monitor_voltage element=line.linha1 mode=0

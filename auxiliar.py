@@ -7,17 +7,17 @@ def create_file(name, parameters):
     arquivo = open(name, "w")
     arquivo.write(parameters)
 
-def create_circuit():
+def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateria_kwhora,bateria_modo):
     # Solicita as informações para a criação do circuito
-    num_cargas = int(input("defina a quantidade de cargas: "))
-    num_pvs = int(input("defina a quantidade de cargas com sistemas solares instalados: "))
-    pmpp = int(input("defina a potência máxima por inversor: "))
-    num_baterias = int(input("defina a quantidade de cargas com baterias instaladas: "))
-    bateria_kwnominal = int(input("defina a potência nominal das baterias: "))
-    bateria_kwhora = int(input("defina o armazenamento em kwh das baterias: "))
-    bateria_modo = input("defina o modo da bateria:\n\
-                             - follow\n\
-                             - peakshave\n")
+    #num_cargas = c
+    #num_pvs = pv
+    #pmpp = pm
+    #num_baterias = b
+    #bateria_kwnominal = int(input("defina a potência nominal das baterias: "))
+    #bateria_kwhora = int(input("defina o armazenamento em kwh das baterias: "))
+    #bateria_modo = input("defina o modo da bateria:\n\
+    #                         - follow\n\
+    #                         - peakshave\n")
 
 
     # Cria um array vazio para concatenar as linhas

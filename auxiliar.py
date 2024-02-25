@@ -78,8 +78,8 @@ def create_circuit():
 
     "loadshapes": "new loadshape.semana\n\
     new loadshape.storagecurve npts=24 interval=1 \n\
-    mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)",
-
+    mult=(0 0 0 0 0 0 0 0  0 -1 -1 -1 -1  -1 -1 0  0  1   1   1    1  1 0  0 0)",
+    #     1 2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17  18  19  20  21 22 23
     "storage.batery.txt": "new storage.batery phases=3 bus1=c kv=0.380 \n\
         kwrated=15 kwhrated=60 dispmode=follow daily=storagecurve",
 
@@ -101,8 +101,8 @@ def create_circuit():
     "mypvsyst_cargas.txt": pvsyst,
 
     "baterias.txt": f"new loadshape.storagecurve npts=24 interval=1 \n\
-        mult=(0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0.8 0.9 0.94 1 0.94 0)\n",
-
+        mult=(0 0 0 0 0 0 0 0  0 -1 -1 -1 -1  -1 -1 0  0  1   1   1    1  1 0  0 0)\n",
+        #     1 2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17  18  19  20  21 22 23
     "baterias_cargas.txt": baterias
     }
 

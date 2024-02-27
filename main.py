@@ -88,14 +88,14 @@ for i in range(0,simulacoes):
 
     # criando os dataframes
 
-    df_sim1_power_line = pd.read_csv(sim1_power_line)
+    df_sim1_power_line = pd.read_csv(sim1_power_line,usecols=[2])
     #df_sim2_power_line = pd.read_csv(sim2_power_line)
-    #df_sim2_power_batery = pd.read_csv(sim2_power_batery)
+    #df_sim2_power_batery = pd.0read_csv(sim2_power_batery)
     #df_sim3_power_line = pd.read_csv(sim3_power_line)
     #df_sim3_power_batery = pd.read_csv(sim3_power_batery)
     #df_sim4_power_line = pd.read_csv(sim4_power_line)
     #df_sim4_power_batery = pd.read_csv(sim4_power_batery)
-    df_sim5_power_line = pd.read_csv(sim5_power_line)
+    df_sim5_power_line = pd.read_csv(sim5_power_line,usecols=[2])
     df_sim5_power_line2_1 = pd.read_csv(sim5_power_line2_1)
     df_sim5_power_line2_2 = pd.read_csv(sim5_power_line2_2)
     #df_sim6_power_line = pd.read_csv(sim6_power_line)
@@ -106,37 +106,27 @@ for i in range(0,simulacoes):
 
     resultados.append(df_sim5_power_line)
 
-resultados_combinados = pd.concat(resultados,ignore_index=True)
+resultados_combinados = pd.concat(resultados,axis=1)
 
-resultados_combinados.loc[resultados_combinados.index.max() + 1] = np.nan
+resultados_combinados.columns = [f'P1_{i+1} kW' for i in range(len(resultados_combinados.columns))]
+
+resultados_combinados.insert(0, 'hour', range(1, len(resultados_combinados) + 1))
+
+print(resultados_combinados)
+
 # plotando o gráfico
 
-# plt.plot(df_sim1_power_line['hour'],
-#         df_sim1_power_line[' P1 (kW)'], label='Simulacao 1: Carga sem nada - Linha 1')
-# plt.plot(df_sim5_power_line['hour'],
-#         df_sim5_power_line[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem e bateria - Linha 1')
+# Definindo as cores para cada linha
+cores = ['blue', 'green', 'red', 'purple']
 
-for i, coluna_y in enumerate ([' P1 (kW)'], start=1):
-    plt.plot(resultados_combinados['hour'],resultados_combinados.index, resultados_combinados[coluna_y], label=f'Simulacao {i}')
+# Plotando o gráfico
+plt.figure(figsize=(10, 6))  # Define o tamanho da figura
+for i, coluna in enumerate(resultados_combinados.columns[1:], start=1):  # Começa do segundo item para excluir a coluna "hour"
+    plt.plot(resultados_combinados['hour'], resultados_combinados[coluna], label=coluna, color=cores[i-1])
 
-
-
-# plt.plot(df_sim5_power_line2_1['hour'],
-#         df_sim5_power_line2_1[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 2 t1')
-# plt.plot(df_sim5_power_line2_2['hour'],
-#         df_sim5_power_line2_2[' P1 (kW)'], label='Simulacao 5: Carga com pvsystem - Linha 2 t2')
-#plt.plot(df_sim6_power_line2['hour'],
-#         df_sim6_power_line2[' P1 (kW)'], label='Simulacao 6: Carga com storage em modo follow e pvsystem - Linha 2')
-# plt.plot(df_sim6_power_batery['hour'],
-#         df_sim6_power_batery[' P1 (kW)'], label='Simulacao 6: Carga com storage em modo follow e pvsystem - Bateria')
-# plt.plot(df_sim6_power_pv['hour'],
-#          df_sim6_power_pv[' P1 (kW)'], label='Simulacao 6: Carga com storage em modo follow e pvsystem - # PV')
-# plt.plot(df_sim6_power_load['hour']
-#          df_sim6_power_load[' P1 (kW)'], label='Simulacao 6 - Load')
-
-
-plt.xlabel('hour')
-plt.ylabel(' P1 (kW)')
-plt.title('Potência na linha')
-plt.legend()
-plt.show()
+plt.xlabel('Hour')  # Define o rótulo do eixo x
+plt.ylabel('Value')  # Define o rótulo do eixo y
+plt.title('Gráfico de Linhas')  # Define o título do gráfico
+plt.legend()  # Mostra a legenda
+plt.grid(True)  # Habilita a grade de fundo
+plt.show()  # Mostra o gráfico

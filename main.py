@@ -15,9 +15,9 @@ resultados = []
 
 for i in range(0,simulacoes):
     num_cargas = 100
-    num_pvs = 25*i
+    num_pvs = int(num_cargas/simulacoes*i)
     pmpp = 40
-    num_baterias = 25*i
+    num_baterias = int(num_cargas/simulacoes*i)
     bateria_kwnominal = 15
     bateria_kwhora = 60
     bateria_modo = "follow"

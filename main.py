@@ -1,20 +1,22 @@
-import py_dss_interface
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
-from auxiliar import create_file
-from auxiliar import create_circuit
 from auxiliar import create_simulacoes
 
-# definindo o número de simulações
 
-resultados = create_simulacoes(10)
+analise = int(input("Qual será a análise?\n0 - Sem baterias ou\n1 - Com baterias\n \nSua resposta: "))
+# concatenação dos vetores usando pandas
 
+# puxando o resultado, usando como input o número de simulações
+resultados = create_simulacoes(11,analise)
+
+# resultados são criados em formado de vetor
 resultados_combinados = pd.concat(resultados,axis=1)
 
-resultados_combinados.columns = [f'P1_{i+1} kW' for i in range(len(resultados_combinados.columns))]
+# nomeando o número de concatenações
+
+resultados_combinados.columns = [f'P1_{i} kW' for i in range(len(resultados_combinados.columns))]
 
 # coluna de horas a partir do 0
 resultados_combinados.insert(0, 'hour', range(1, len(resultados_combinados) + 1))

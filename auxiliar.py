@@ -110,12 +110,12 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
     return files
 
 resultados = []
-def create_simulacoes(simulacoes):
+def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):
         num_cargas = 100
         num_pvs = int(num_cargas/simulacoes*i)
         pmpp = 40
-        num_baterias = int(num_cargas/simulacoes*i)
+        num_baterias = int(num_cargas/simulacoes*i) if analise == 1 else 0
         bateria_kwnominal = 15
         bateria_kwhora = 60
         bateria_modo = "follow"

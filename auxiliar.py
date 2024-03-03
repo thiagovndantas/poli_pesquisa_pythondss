@@ -2,7 +2,8 @@ import random
 from database import calcular_media_diaria_por_hora
 from database import calcular_irradiancia_diaria_por_hora
 from database import calcular_potencia_diaria_por_hora
-
+import py_dss_interface
+import pandas as pd
 def create_file(name, parameters):
     arquivo = open(name, "w")
     arquivo.write(parameters)
@@ -107,3 +108,48 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
     }
 
     return files
+
+resultados = []
+def create_simulacoes(simulacoes):
+    for i in range(0,simulacoes):
+        num_cargas = 100
+        num_pvs = int(num_cargas/simulacoes*i)
+        pmpp = 40
+        num_baterias = int(num_cargas/simulacoes*i)
+        bateria_kwnominal = 15
+        bateria_kwhora = 60
+        bateria_modo = "follow"
+
+        # Criação do circuito
+        files = create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateria_kwhora,bateria_modo)
+
+        # Criando os files do circuito
+        for name, parameters in files.items():
+            create_file(name, parameters)
+
+        # chamando o opendss
+        dss = py_dss_interface.DSSDLL()
+
+        # criando o loadshape
+        loadShape1 = (0.677, 0.6256, 0.6087, 0.5833, 0.58028, 0.6025, 0.657, 0.7477, 0.832, 0.88,
+                    0.94, 0.989, 0.985, 0.98, 0.9898, 1, 1.05, 1.02, 1, 0.97, 0.9, 0.876, 0.828, 0.756)
+
+        df1 = pd.DataFrame(loadShape1)
+        df1.to_csv('loadshape1.csv', index=False, header=False)
+
+        dss_file5 = "simulacao5.dss"
+        
+        # rodando os arquivos
+        dss.text("compile {}".format(dss_file5))
+
+        # arquivos gerados pela compilação do código
+
+        sim5_power_line = "fonte_Mon_monitor_power_line_sim5_1.csv"  # linha 1 terminal 2
+
+        # criando os dataframes
+
+        df_sim5_power_line = pd.read_csv(sim5_power_line,usecols=[2])
+
+        resultados.append(df_sim5_power_line)
+
+    return resultados

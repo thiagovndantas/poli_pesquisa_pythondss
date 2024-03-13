@@ -37,7 +37,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
         carga_name = f"carga{i}"
         kw = random.uniform(50, 60)
         pf = random.uniform(0.8, 1)
-        carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=c{i} kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=default\n"
+        carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=c{i} kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=semana\n"
         cargas += carga_value
 
     # Cria um array vazio para concatenar os pvsysts
@@ -78,8 +78,8 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
     "linhas_cargas.txt": linhas,
 
     "loadshapes": "new loadshape.semana\n\
-    new loadshape.storagecurve npts=24 interval=1 \n\
-    mult=(0 0 0 0 0 0 0 0  0 -1 -1 -1 -1  -1 -1 0  0  1   1   1    1  1 0  0 0)",
+    new loadshape.storagecurve npts=96 interval=0.25 \n\
+    mult=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0)",
     #     1 2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17  18  19  20  21 22 23
     "storage.batery.txt": "new storage.batery phases=3 bus1=c kv=0.380 \n\
         kwrated=15 kwhrated=60 dispmode=follow daily=storagecurve",
@@ -101,8 +101,8 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
     "mypvsyst_cargas.txt": pvsyst,
 
-    "baterias.txt": f"new loadshape.storagecurve npts=24 interval=1 \n\
-        mult=(0 0 0 0 0 0 0 0  0 -1 -1 -1 -1  -1 -1 0  0  1   1   1    1  1 0  0 0)\n",
+    "baterias.txt": f"new loadshape.storagecurve npts=96 interval=1 \n\
+        mult=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0)\n",
         #     1 2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17  18  19  20  21 22 23
     "baterias_cargas.txt": baterias
     }
@@ -131,11 +131,11 @@ def create_simulacoes(simulacoes,analise):
         dss = py_dss_interface.DSSDLL()
 
         # criando o loadshape
-        loadShape1 = (0.677, 0.6256, 0.6087, 0.5833, 0.58028, 0.6025, 0.657, 0.7477, 0.832, 0.88,
-                    0.94, 0.989, 0.985, 0.98, 0.9898, 1, 1.05, 1.02, 1, 0.97, 0.9, 0.876, 0.828, 0.756)
+        loadShape1 = (0.677, 0.66920548, 0.66165494, 0.65436487, 0.64735173, 0.64063299, 0.63422512, 0.62814558, 0.2241185, 0.61704139, 0.61205166, 0.6074601, 0.60328416, 0.5995413, 0.59624897, 0.59342463, 0.59108574, 0.58924975, 0.58793412, 0.58715629, 0.58693372, 0.58728387, 0.58822419, 0.58977214, 0.59194516, 0.59476069, 0.59823618, 0.60238908, 0.60723683, 0.61279688, 0.61908667, 0.62612363, 0.63392521, 0.64250886, 0.65189203, 0.66209217, 0.67312674, 0.68401318, 0.69476896, 0.70541154, 0.71595837, 0.72642691, 0.73683462, 0.74719897, 0.7575374, 0.76786738, 0.77820636, 0.78857178, 0.79898109, 0.80945173, 0.82000115, 0.8306468, 0.84140613, 0.8522966, 0.86333565, 0.87454072, 0.88592926, 0.89751871, 0.90932652, 0.92137014, 0.93366701, 0.94623458, 0.9590903, 0.97225161, 0.98573597, 0.99956084, 1.01374367, 1.02830191, 1.04325302, 1.05861446, 1.07440369, 1.09063817, 1.10733535, 1.12451269, 1.14218764, 1.16037765, 1.17910019, 1.1983727, 1.21821265, 1.23863751, 1.25966475, 1.28131185, 1.30359628, 1.32653552, 1.35014705, 1.37444834, 1.39945687, 1.42519011, 1.45166555, 1.47890066, 1.50691293, 1.53571983, 1.56533886, 1.59578748)
 
-        df1 = pd.DataFrame(loadShape1)
-        df1.to_csv('loadshape1.csv', index=False, header=False)
+        
+        #df1 = pd.DataFrame(loadShape1)
+        #df1.to_csv('loadshape1.csv', index=False, header=False)
 
         dss_file5 = "simulacao5.dss"
         

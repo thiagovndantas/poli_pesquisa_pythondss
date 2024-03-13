@@ -94,9 +94,9 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
     "mypvsyst.txt": f"new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6) \n\
         new xycurve.myeff npts=4 xarray=(.1 .2 .4 1) yarray=(.86 .9 .93 .97) \n\
-        new loadshape.myirrad npts=24 interval=1 \n\
+        new loadshape.myirrad npts=96 interval=0.25 \n\
         redirect pvsyst_irrad.txt \n\
-        new tshape.mytemp npts=24 interval=1 \n\
+        new tshape.mytemp npts=96 interval=0.25 \n\
         redirect pvsyst_temp.txt\n",
 
     "mypvsyst_cargas.txt": pvsyst,

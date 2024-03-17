@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from auxiliar import create_simulacoes
 
 
-analise = int(input("Qual será a análise?\n0 - Sem baterias ou\n1 - Com baterias\n \nSua resposta: "))
+analise = int(input("Qual será a análise?\n0 - Sem nada ou\n1 - Com pvsystem ou\n2 - Com pvsystem e baterias\nSua resposta: "))
 # concatenação dos vetores usando pandas
 
 # puxando o resultado, usando como input o número de simulações

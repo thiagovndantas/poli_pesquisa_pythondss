@@ -37,7 +37,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
         carga_name = f"carga{i}"
         kw = random.uniform(50, 60)
         pf = random.uniform(0.8, 1)
-        carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=c{i} kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=default\n"
+        carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=c{i} kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=semana\n"
         cargas += carga_value
 
     # Cria um array vazio para concatenar os pvsysts
@@ -113,9 +113,9 @@ resultados = []
 def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):
         num_cargas = 100
-        num_pvs = int(num_cargas/simulacoes*i)
+        num_pvs = int(num_cargas/simulacoes*i) if analise == 1 or analise == 2 else 0
         pmpp = 40
-        num_baterias = int(num_cargas/simulacoes*i) if analise == 1 else 0
+        num_baterias = int(num_cargas/simulacoes*i) if analise == 2 else 0
         bateria_kwnominal = 15
         bateria_kwhora = 60
         bateria_modo = "follow"

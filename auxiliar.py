@@ -107,6 +107,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
     return files
 
 resultados = []
+
 def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):
         num_cargas = 100

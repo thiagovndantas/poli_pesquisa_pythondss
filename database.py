@@ -69,3 +69,6 @@ def calcular_irradiancia_diaria_por_hora(arquivo):
 
     # Exibir a média diária por hora
     return "mult = ("+ resultado + ")"
+
+# teste=calcular_irradiancia_diaria_por_hora('results.csv')
+# print(teste)

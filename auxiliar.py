@@ -4,6 +4,7 @@ from database import calcular_irradiancia_diaria_por_hora
 from database import calcular_potencia_diaria_por_hora
 import py_dss_interface
 import pandas as pd
+
 def create_file(name, parameters):
     arquivo = open(name, "w")
     arquivo.write(parameters)
@@ -77,8 +78,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
     "linhas_cargas.txt": linhas,
 
-    "loadshapes": "new loadshape.semana\n\
-    new loadshape.storagecurve npts=96 interval=0.25 \n\
+    "loadshapes": "new loadshape.storagecurve npts=96 interval=0.25 \n\
     mult=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0)",
     #     1 2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17  18  19  20  21 22 23
     "storage.batery.txt": "new storage.batery phases=3 bus1=c kv=0.380 \n\

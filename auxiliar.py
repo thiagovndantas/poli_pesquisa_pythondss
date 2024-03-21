@@ -60,9 +60,9 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
         baterias += baterias_value
         
 
-    pvsyst_temp = calcular_media_diaria_por_hora('results.csv')
-    pvsyst_pot = calcular_potencia_diaria_por_hora('results.csv',num_pvs)
-    pvsyst_irrad = calcular_irradiancia_diaria_por_hora('results.csv')
+    pvsyst_temp = calcular_media_diaria_por_hora('results96.csv')
+    pvsyst_pot = calcular_potencia_diaria_por_hora('results96.csv',num_pvs)
+    pvsyst_irrad = calcular_irradiancia_diaria_por_hora('results96.csv')
     
     # Cria a função para a criação do circuito geral
     files = {

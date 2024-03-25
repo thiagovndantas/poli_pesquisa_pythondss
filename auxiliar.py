@@ -51,17 +51,15 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
         baterias_value = f"new storage.batery{i} phases=3 bus1=c{i} kv=0.38 kwrated={bateria_kwnominal} kwhrated={bateria_kwhora} dispmode={bateria_modo} %reserve = 20 %stored = 20 daily=storagecurve\n"
         baterias += baterias_value
         
-<<<<<<< HEAD
 
     pvsyst_temp = calcular_media_diaria_por_hora('results96.csv')
     pvsyst_pot = calcular_potencia_diaria_por_hora('results96.csv',num_pvs)
     pvsyst_irrad = calcular_irradiancia_diaria_por_hora('results96.csv')
-=======
+
     # Cálculo das médias de temperatura, potência e irradiação com base no arquivos do sam results.csv
     pvsyst_temp = calcular_media_diaria_por_hora('results.csv')
     pvsyst_pot = calcular_potencia_diaria_por_hora('results.csv',num_pvs)
     pvsyst_irrad = calcular_irradiancia_diaria_por_hora('results.csv')
->>>>>>> main
     
     # Cria a função para a criação do circuito geral
     files = {

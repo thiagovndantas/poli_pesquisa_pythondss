@@ -100,7 +100,7 @@ def create_simulacoes(simulacoes,analise):
         num_cargas = 100
         num_pvs = int(num_cargas/simulacoes*i)
         pmpp = 40
-        num_baterias = int(num_cargas/simulacoes*i) if analise == 1 else 0
+        num_baterias = int(num_cargas/simulacoes*i) if analise == 2 else 0
         bateria_kwnominal = 15
         bateria_kwhora = 60
         bateria_modo = "follow"

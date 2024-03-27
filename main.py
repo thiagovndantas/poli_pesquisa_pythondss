@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 
 from auxiliar import create_simulacoes
 
-
-analise = int(input("Qual será a análise?\n0 - Sem baterias ou\n1 - Com baterias\n \nSua resposta: "))
-# concatenação dos vetores usando pandas
+analise = int(input("Qual será a análise?\n0 - Sem nada ou\n1 - Com pvsystem ou\n2 - Com pvsystem e baterias\nSua resposta: "))
 
 # puxando o resultado, usando como input o número de simulações
 resultados = create_simulacoes(11,analise)
@@ -15,16 +13,12 @@ resultados = create_simulacoes(11,analise)
 resultados_combinados = pd.concat(resultados,axis=1)
 
 # nomeando o número de concatenações
-
 resultados_combinados.columns = [f'P1_{i} kW' for i in range(len(resultados_combinados.columns))]
 
 # coluna de horas a partir do 0
 resultados_combinados.insert(0, 'hour', range(1, len(resultados_combinados) + 1))
 
 # plotando o gráfico
-
-# Definindo as cores para cada linha
-
 num_cores = len(resultados_combinados.columns[1:])
 cores = plt.cm.viridis(np.linspace(0, 1, num_cores))
 
@@ -36,4 +30,12 @@ plt.ylabel('Value')
 plt.title('Gráfico de Linhas')  
 plt.legend()  
 plt.grid(True)  
+
+# Defina o nome do arquivo para salvar
+nome_arquivo = f"Figura_Simulacao_{analise}.png"
+
+# Salve a figura
+plt.savefig(nome_arquivo)
+
+# Exibir o gráfico
 plt.show()

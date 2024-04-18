@@ -40,7 +40,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
         pvsyst += pvsyst_value
 
     # Transforma o dicionário de entrada e saída da bateria para a curva que é lida pelo opendss
-    curva_bateria = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:-1, 10:-1, 11:-1, 12:-1, 13:0, 14:0, 15:0, 16:0, 17:0, 18:1, 19:1, 20:1, 21:1, 22:0, 23:0, 24:0}
+    curva_bateria = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:-0.5, 9:-0.75, 10:-1, 11:-1, 12:-0.5, 13:-0.25, 14:0, 15:0, 16:0, 17:0.5, 18:0.75, 19:1, 20:1, 21:1, 22:0, 23:0, 24:0}
     curva_bateria_dss = tuple(valor for valor in curva_bateria.values() for _ in range(4))
     
     # Cria um array vazio para concatenar as baterias

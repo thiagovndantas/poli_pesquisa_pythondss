@@ -98,7 +98,7 @@ resultados = []
 def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):
         num_cargas = 100
-        num_pvs = int(num_cargas/simulacoes*i)
+        num_pvs = int(num_cargas/simulacoes*i) if analise != 0 else 0
         pmpp = 40
         num_baterias = int(num_cargas/simulacoes*i) if analise == 2 else 0
         bateria_kwnominal = 15

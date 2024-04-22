@@ -18,6 +18,10 @@ resultados_combinados.columns = [f'P1_{i} kW' for i in range(len(resultados_comb
 # coluna de horas a partir do 0
 resultados_combinados.insert(0, 'hour', range(1, len(resultados_combinados) + 1))
 
+# Salvar os dados em um arquivo CSV
+nome_arquivo_csv = f"Dados_Simulacao_{analise}.csv"
+resultados_combinados.to_csv(nome_arquivo_csv, index=False)
+
 # plotando o gráfico
 num_cores = len(resultados_combinados.columns[1:])
 cores = plt.cm.viridis(np.linspace(0, 1, num_cores))

@@ -29,10 +29,11 @@ cores = plt.cm.viridis(np.linspace(0, 1, num_cores))
 for i, coluna in enumerate(resultados_combinados.columns[1:], start=0):
     plt.plot(resultados_combinados['hour'], resultados_combinados[coluna], label=coluna, color=cores[i])
 
-plt.xlabel('Hour')  
+plt.xlabel('0.25 Hour')  
 plt.ylabel('Value')  
 plt.title('Gráfico de Linhas')  
 plt.legend()  
+plt.ylim(bottom=0)
 plt.grid(True)  
 
 # Defina o nome do arquivo para salvar

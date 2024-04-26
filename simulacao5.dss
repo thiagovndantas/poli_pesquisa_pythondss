@@ -31,8 +31,8 @@ new monitor.monitor_power_line2_2_sim5 element=line.linha2 mode=1 ppolar=no term
 new monitor.monitor_voltage element=line.linha1 mode=0
 
 set mode=daily
-set stepsize=1h
-set number=24
+set stepsize=0.25h
+set number=96
 solve
 
 !Export monitors monitor_power_batery_sim5

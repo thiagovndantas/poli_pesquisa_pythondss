@@ -1,10 +1,10 @@
 import os
 import pandas as pd
 
-def calcular_media_diaria_por_hora(arquivo):
+# Obtém o caminho do diretório atual
+caminho_atual = os.path.dirname(__file__)
 
-    # Obtém o caminho do diretório atual
-    caminho_atual = os.getcwd()
+def calcular_media_diaria_por_hora(arquivo):
 
     # Junta o caminho do diretório atual com o nome do arquivo
     caminho_arquivo = os.path.join(caminho_atual, arquivo)
@@ -26,9 +26,6 @@ def calcular_media_diaria_por_hora(arquivo):
 
 def calcular_potencia_diaria_por_hora(arquivo,num_pvs):
 
-    # Obtém o caminho do diretório atual
-    caminho_atual = os.getcwd()
-
     # Junta o caminho do diretório atual com o nome do arquivo
     caminho_arquivo = os.path.join(caminho_atual, arquivo)
 
@@ -49,9 +46,6 @@ def calcular_potencia_diaria_por_hora(arquivo,num_pvs):
 
 def calcular_irradiancia_diaria_por_hora(arquivo):
 
-    # Obtém o caminho do diretório atual
-    caminho_atual = os.getcwd()
-
     # Junta o caminho do diretório atual com o nome do arquivo
     caminho_arquivo = os.path.join(caminho_atual, arquivo)
 
@@ -70,5 +64,5 @@ def calcular_irradiancia_diaria_por_hora(arquivo):
     # Exibir a média diária por hora
     return "mult = ("+ resultado + ")"
 
-# teste=calcular_irradiancia_diaria_por_hora('results.csv')
-# print(teste)
+#teste=calcular_irradiancia_diaria_por_hora('results.csv')
+#print(teste)

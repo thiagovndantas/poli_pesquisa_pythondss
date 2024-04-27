@@ -1,9 +1,10 @@
 import random
-from database import calcular_media_diaria_por_hora
-from database import calcular_irradiancia_diaria_por_hora
-from database import calcular_potencia_diaria_por_hora
+from Parameters.InputRealData.database import calcular_media_diaria_por_hora
+from Parameters.InputRealData.database import calcular_irradiancia_diaria_por_hora
+from Parameters.InputRealData.database import calcular_potencia_diaria_por_hora
 import py_dss_interface
 import pandas as pd
+import os
 
 def create_file(name, parameters):
     arquivo = open(name, "w")
@@ -95,6 +96,8 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
 resultados = []
 
+simulator_path = os.path.join(os.path.dirname(__file__),"..","Simulator")
+
 def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):
         num_cargas = 100
@@ -110,7 +113,7 @@ def create_simulacoes(simulacoes,analise):
 
         # Criando os files do circuito
         for name, parameters in files.items():
-            create_file(name, parameters)
+            create_file(os.path.join(simulator_path,name), parameters)
 
         # chamando o opendss
         dss = py_dss_interface.DSSDLL()

@@ -1,0 +1,6 @@
+new xycurve.mypvsist npts=4 xarray=(0 25 75 100) yarray=(1.2 1 .8 .6) 
+        new xycurve.myeff npts=4 xarray=(.1 .2 .4 1) yarray=(.86 .9 .93 .97) 
+        new loadshape.myirrad npts=96 interval=0.25 
+        redirect pvsyst_irrad.txt 
+        new tshape.mytemp npts=96 interval=0.25 
+        redirect pvsyst_temp.txt

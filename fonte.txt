@@ -1,1 +1,0 @@
-new circuit.fonte bus1=a basekv=0.380 phases=3

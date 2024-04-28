@@ -96,7 +96,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
 resultados = []
 
-simulator_path = os.path.join(os.path.dirname(__file__),"..","Simulator")
+simulator_path = os.path.join(os.path.dirname(os.path.dirname(__file__)),"Simulator")
 
 def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):
@@ -118,7 +118,7 @@ def create_simulacoes(simulacoes,analise):
         # chamando o opendss
         dss = py_dss_interface.DSSDLL()
 
-        dss_file5 = "simulacao5.dss"
+        dss_file5 = os.path.join(simulator_path,"simulacao5.dss")
         
         # rodando os arquivos
         dss.text("compile {}".format(dss_file5))

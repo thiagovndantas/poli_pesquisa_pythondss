@@ -1,7 +1,7 @@
 import random
-from Parameters.InputRealData.database import calcular_media_diaria_por_hora
-from Parameters.InputRealData.database import calcular_irradiancia_diaria_por_hora
-from Parameters.InputRealData.database import calcular_potencia_diaria_por_hora
+from Parameters.input_real_data.database import calcular_media_diaria_por_hora
+from Parameters.input_real_data.database import calcular_irradiancia_diaria_por_hora
+from Parameters.input_real_data.database import calcular_potencia_diaria_por_hora
 import py_dss_interface
 import pandas as pd
 import os
@@ -96,7 +96,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
 resultados = []
 
-simulator_path = os.path.join(os.path.dirname(os.path.dirname(__file__)),"Simulator")
+simulator_path = os.path.join(os.path.dirname(os.path.dirname(__file__)),"simulator")
 
 def create_simulacoes(simulacoes,analise):
     for i in range(0,simulacoes):

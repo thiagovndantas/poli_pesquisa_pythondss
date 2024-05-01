@@ -1,12 +1,57 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+import py_dss_interface
 
-from Parameters.parametersgen import create_simulacoes
+from Parameters.parametersgen import create_circuit
+from Parameters.parametersgen import create_file
 
 analise = int(input("Qual será a análise?\n0 - Sem nada ou\n1 - Com pvsystem ou\n2 - Com pvsystem e baterias\nSua resposta: "))
 
 # puxando o resultado, usando como input o número de simulações
+
+resultados = []
+
+simulator_path = os.path.join(os.path.dirname(__file__),"simulator")
+
+def create_simulacoes(simulacoes,analise):
+    for i in range(0,simulacoes):
+        num_cargas = 100
+        num_pvs = int(num_cargas/simulacoes*i) if analise != 0 else 0
+        pmpp = 40
+        num_baterias = int(num_cargas/simulacoes*i) if analise == 2 else 0
+        bateria_kwnominal = 15
+        bateria_kwhora = 60
+        bateria_modo = "follow"
+
+        # Criação do circuito
+        files = create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateria_kwhora,bateria_modo)
+
+        # Criando os files do circuito
+        for name, parameters in files.items():
+            create_file(os.path.join(simulator_path,name), parameters)
+
+        # chamando o opendss
+        dss = py_dss_interface.DSSDLL()
+
+        dss_file5 = os.path.join(simulator_path,"simulacao5.dss")
+        
+        # rodando os arquivos
+        dss.text("compile {}".format(dss_file5))
+
+        # arquivos gerados pela compilação do código
+
+        sim5_power_line = "fonte_Mon_monitor_power_line_sim5_1.csv"  # linha 1 terminal 2
+
+        # criando os dataframes
+
+        df_sim5_power_line = pd.read_csv(sim5_power_line,usecols=[2])
+
+        resultados.append(df_sim5_power_line)
+
+    return resultados
+
 resultados = create_simulacoes(11,analise)
 
 # resultados são criados em formado de vetor

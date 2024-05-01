@@ -7,7 +7,7 @@ import py_dss_interface
 from Parameters.parametersgen import create_circuit
 from Parameters.parametersgen import create_file
 
-analise = int(input("Qual será a análise?\n0 - Sem nada ou\n1 - Com pvsystem ou\n2 - Com pvsystem e baterias\nSua resposta: "))
+analise = int(input("Defina a análise conforme README.\nSua análise: "))
 
 # puxando o resultado, usando como input o número de simulações
 
@@ -15,12 +15,18 @@ resultados = []
 
 simulator_path = os.path.join(os.path.dirname(__file__),"simulator")
 
-def create_simulacoes(simulacoes,analise):
-    for i in range(0,simulacoes):
+# máscara de simulação que vai obedecer a análise escolhida no par [FV,BESS]
+simulator_mask = [[[0,0],[0.25,0],[0.5,0],[0.75,0],[1.0,0]],\
+                [[0.75,0],[0.75,0.25],[0.75,0.5],[0.75,0.75]],\
+                [[0.5,0],[0.5,0.25],[0.5,0.5],[0.5,0.75]],\
+                [[0.25,0],[0.25,0.25],[0.25,0.5],[0.25,0.75]]]
+
+def create_simulacoes():
+    for i in simulator_mask[analise]:
         num_cargas = 100
-        num_pvs = int(num_cargas/simulacoes*i) if analise != 0 else 0
+        num_pvs = int(num_cargas*i[0])
         pmpp = 40
-        num_baterias = int(num_cargas/simulacoes*i) if analise == 2 else 0
+        num_baterias = int(num_cargas*i[1])
         bateria_kwnominal = 15
         bateria_kwhora = 60
         bateria_modo = "follow"
@@ -52,7 +58,7 @@ def create_simulacoes(simulacoes,analise):
 
     return resultados
 
-resultados = create_simulacoes(11,analise)
+resultados = create_simulacoes()
 
 # resultados são criados em formado de vetor
 resultados_combinados = pd.concat(resultados,axis=1)

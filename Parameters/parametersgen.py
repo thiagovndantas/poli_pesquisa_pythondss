@@ -39,7 +39,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
         pvsyst += pvsyst_value
 
     # Transforma o dicionário de entrada e saída da bateria para a curva que é lida pelo opendss
-    curva_bateria = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:-0.5, 9:-0.75, 10:-1, 11:-1, 12:-0.5, 13:-0.25, 14:0, 15:0, 16:0, 17:0.5, 18:0.75, 19:1, 20:1, 21:1, 22:0, 23:0, 24:0}
+    curva_bateria = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:-0.15, 9:-0.25, 10:-0.5, 11:-0.25, 12:0, 13:0, 14:0, 15:0, 16:0.25, 17:0.5, 18:0.75, 19:1, 20:0.75, 21:0.5, 22:0.25, 23:0, 24:0}
     curva_bateria_dss = tuple(valor for valor in curva_bateria.values() for _ in range(4))
     
     # Cria um array vazio para concatenar as baterias
@@ -47,7 +47,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
 
     # Estrutura de repetição para a criação das baterias
     for i in range(1, num_baterias + 1):
-        baterias_value = f"new storage.batery{i} phases=3 bus1=c{i} kv=0.38 kwrated={bateria_kwnominal} kwhrated={bateria_kwhora} dispmode={bateria_modo} %reserve = 20 %stored = 20 daily=storagecurve\n"
+        baterias_value = f"new storage.batery{i} phases=3 bus1=c{i} kv=0.38 kwrated={bateria_kwnominal} kwhrated={bateria_kwhora} dispmode={bateria_modo} %reserve = 20 %stored = 50 daily=storagecurve\n"
         baterias += baterias_value
         
     # Cálculo das médias de temperatura, potência e irradiação com base no arquivos do sam results.csv

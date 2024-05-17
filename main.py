@@ -64,7 +64,7 @@ resultados = create_simulacoes()
 resultados_combinados = pd.concat(resultados,axis=1)
 
 # nomeando o número de concatenações
-resultados_combinados.columns = [f'P1_{i} kW' for i in range(len(resultados_combinados.columns))]
+resultados_combinados.columns = [f'Simulação {i}' for i in range(len(resultados_combinados.columns))]
 
 # coluna de horas a partir do 0
 resultados_combinados.insert(0, 'hour', range(1, len(resultados_combinados) + 1))
@@ -80,12 +80,17 @@ cores = plt.cm.viridis(np.linspace(0, 1, num_cores))
 for i, coluna in enumerate(resultados_combinados.columns[1:], start=0):
     plt.plot(resultados_combinados['hour'], resultados_combinados[coluna], label=coluna, color=cores[i])
 
-plt.xlabel('0.25 Hour')  
-plt.ylabel('Value')  
-plt.title('Gráfico de Linhas')  
+plt.xlabel('0.25 de hora')  
+plt.ylabel('Potência [kW]')  
+plt.title('Potência na linha')  
 plt.legend()  
 plt.ylim(bottom=0)
 plt.grid(True)  
+
+texto = ["Cenários de 0, 25, 50 e 75% 100 de penetração de FV","cenários de 0, 25, 50 e 75% de penetração de BESS sob 75% de FV (grande penetração","cenários de 0, 25, 50 e 75% de penetração de BESS sob 50% de FV (média penetração)","cenários de 0, 25, 50 e 75% de penetração de BESS sob 25% de FV (pequena penetração)"]
+
+plt.text(96, 80, texto[analise], fontsize=8, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.5))
+
 
 # Defina o nome do arquivo para salvar
 nome_arquivo = f"Figura_Simulacao_{analise}.png"

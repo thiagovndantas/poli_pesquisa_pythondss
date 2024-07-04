@@ -1,50 +1,100 @@
-new pvsystem.pv1 phases=3 bus1=c1 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv1 phases=3 bus1=c1 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv2 phases=3 bus1=c2 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv2 phases=3 bus1=c2 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv3 phases=3 bus1=c3 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv3 phases=3 bus1=c3 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv4 phases=3 bus1=c4 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv4 phases=3 bus1=c4 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv5 phases=3 bus1=c5 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv5 phases=3 bus1=c5 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv6 phases=3 bus1=c6 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv6 phases=3 bus1=c6 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv7 phases=3 bus1=c7 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv7 phases=3 bus1=c7 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv8 phases=3 bus1=c8 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv8 phases=3 bus1=c8 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv9 phases=3 bus1=c9 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv9 phases=3 bus1=c9 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv10 phases=3 bus1=c10 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv10 phases=3 bus1=c10 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv11 phases=3 bus1=c11 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv11 phases=3 bus1=c11 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv12 phases=3 bus1=c12 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv12 phases=3 bus1=c12 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv13 phases=3 bus1=c13 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv13 phases=3 bus1=c13 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv14 phases=3 bus1=c14 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv14 phases=3 bus1=c14 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv15 phases=3 bus1=c15 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv15 phases=3 bus1=c15 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv16 phases=3 bus1=c16 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv16 phases=3 bus1=c16 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv17 phases=3 bus1=c17 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv17 phases=3 bus1=c17 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv18 phases=3 bus1=c18 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv18 phases=3 bus1=c18 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv19 phases=3 bus1=c19 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv19 phases=3 bus1=c19 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv20 phases=3 bus1=c20 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv20 phases=3 bus1=c20 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv21 phases=3 bus1=c21 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv21 phases=3 bus1=c21 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv22 phases=3 bus1=c22 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv22 phases=3 bus1=c22 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv23 phases=3 bus1=c23 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv23 phases=3 bus1=c23 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv24 phases=3 bus1=c24 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv24 phases=3 bus1=c24 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
-new pvsystem.pv25 phases=3 bus1=c25 kv=0.38 irrad= 1 pmpp=40 temperature=26 pf=1 
+new pvsystem.pv25 phases=3 bus1=c25 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv26 phases=3 bus1=c26 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv27 phases=3 bus1=c27 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv28 phases=3 bus1=c28 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv29 phases=3 bus1=c29 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv30 phases=3 bus1=c30 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv31 phases=3 bus1=c31 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv32 phases=3 bus1=c32 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv33 phases=3 bus1=c33 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv34 phases=3 bus1=c34 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv35 phases=3 bus1=c35 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv36 phases=3 bus1=c36 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv37 phases=3 bus1=c37 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv38 phases=3 bus1=c38 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv39 phases=3 bus1=c39 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv40 phases=3 bus1=c40 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv41 phases=3 bus1=c41 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv42 phases=3 bus1=c42 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv43 phases=3 bus1=c43 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv44 phases=3 bus1=c44 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv45 phases=3 bus1=c45 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv46 phases=3 bus1=c46 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv47 phases=3 bus1=c47 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv48 phases=3 bus1=c48 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv49 phases=3 bus1=c49 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
+        %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp
+new pvsystem.pv50 phases=3 bus1=c50 kv=0.38 irrad= 1 pmpp=200 temperature=26 pf=1 
         %cutin=0.1 %cutout=0.1 effcurve=myeff p-tcurve=mypvst daily=myirrad tdaily=mytemp

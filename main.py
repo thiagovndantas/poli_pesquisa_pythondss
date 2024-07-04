@@ -23,12 +23,12 @@ simulator_mask = [[[0,0],[0.25,0],[0.5,0],[0.75,0],[1.0,0]],\
 
 def create_simulacoes():
     for i in simulator_mask[analise]:
-        num_cargas = 100
+        num_cargas = 200
         num_pvs = int(num_cargas*i[0])
-        pmpp = 40
+        pmpp = 200
         num_baterias = int(num_cargas*i[1])
-        bateria_kwnominal = 15
-        bateria_kwhora = 60
+        bateria_kwnominal = 50
+        bateria_kwhora = 200
         bateria_modo = "follow"
 
         # Criação do circuito
@@ -83,13 +83,16 @@ for i, coluna in enumerate(resultados_combinados.columns[1:], start=0):
 plt.xlabel('0.25 de hora')  
 plt.ylabel('Potência [kW]')  
 plt.title('Potência na linha')  
-plt.legend()  
-plt.ylim(bottom=0)
+plt.legend()
+
+limite = 700
+
+plt.ylim(bottom=limite)
 plt.grid(True)  
 
 texto = ["Cenários de 0, 25, 50 e 75% 100 de penetração de FV","cenários de 0, 25, 50 e 75% de penetração de BESS sob 75% de FV (grande penetração","cenários de 0, 25, 50 e 75% de penetração de BESS sob 50% de FV (média penetração)","cenários de 0, 25, 50 e 75% de penetração de BESS sob 25% de FV (pequena penetração)"]
 
-plt.text(96, 80, texto[analise], fontsize=8, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.5))
+plt.text(96, limite + 20, texto[analise], fontsize=8, ha='right', va='top', bbox=dict(facecolor='white', alpha=0.5))
 
 
 # Defina o nome do arquivo para salvar

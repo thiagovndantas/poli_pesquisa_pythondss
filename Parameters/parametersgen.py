@@ -24,7 +24,7 @@ def create_circuit(num_cargas,num_pvs,pmpp,num_baterias,bateria_kwnominal,bateri
     # Estrutura de repetição para a criação das cargas
     for i in range(1, num_cargas + 1):
         carga_name = f"carga{i}"
-        kw = random.uniform(50, 60)
+        kw = random.uniform(150, 200)
         pf = random.uniform(0.8, 1)
         carga_value = f"new load.{carga_name} phases=3 conn=wye bus1=c{i} kw={kw:.2f} pf={pf:.2f} kv=0.38 daily=semana\n"
         cargas += carga_value
